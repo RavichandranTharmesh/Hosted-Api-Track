@@ -1,10 +1,10 @@
 const express = require('express');
+const storage = require('../helpers/storage');
 const router = express.Router();
 
-const reserveController = require('../controllers/reserve');
+const locationController = require('../controllers/location');
 
-router.post('/addreserve', reserveController.postReserve);
-router.get('/getreserve', reserveController.getReserve);
-
+router.get('/findReserveBus/:id', locationController.findBus);
+router.put('/updateLocation/:id', storage, locationController.updateLocation);
 
 module.exports = router;
